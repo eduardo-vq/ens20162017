@@ -1,0 +1,3 @@
+The Scripts folder should include
+
+* One master script that calls all the other scripts in order

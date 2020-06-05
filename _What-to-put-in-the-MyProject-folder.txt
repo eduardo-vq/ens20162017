@@ -1,0 +1,4 @@
+The MyProject folder should include
+
+* a ReadMe file (ReadMe.pdf)
+* the Report (TheReport.pdf)
