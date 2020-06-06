@@ -10,7 +10,7 @@ Observar distribuciones por sexo y comuna de algunos factores de alto riesgo par
 
 Encuesta Nacional de Salud (ENS) 2016-2017.
 
-_Variables analizadas: detalladas en documento "Objetivo, Estudio y Variables"._
+_Variables analizadas detalladas en documento "Objetivo, Estudio y Variables"._
 
 #### Autor
 
