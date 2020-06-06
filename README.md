@@ -14,4 +14,4 @@ _Variables analizadas: detalladas en documento "Objetivo, Estudio y Variables"._
 
 #### Autor
 
-Eduardo Peña Ortiz.
+Eduardo Peña Ortiz
