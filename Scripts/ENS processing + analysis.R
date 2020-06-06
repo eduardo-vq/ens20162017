@@ -62,7 +62,7 @@ table(ENS_analisis$sexo_factor)
 table(ENS_analisis$comuna)
 class(ENS_analisis$comuna)
 
-#Edad: Menor a 65 o 65+ (nominal)
+#Edad: Menor a 65 o 65+ (ordinal)
 
 #1. 15-24 años / 2. 25-44 años / 3. 45-64años / 4. 65 o más.
 #Recodificar en menor de 65 / 65+
@@ -88,6 +88,7 @@ dim(e65mas)
 #Enfermedad pulmonar crónica (nominal)
 
 #¿Alguna vez un doctor o médico le ha dicho que tiene o que padece de Bronquitis crónica, enfisema pulmonar, enfermedad pulmonar obstructiva crónica o EPOC? -8888 NO SABE /  1 SÍ  / 2 NO
+#recodificar en 1.Sí 0.No 
 summary(ENS_analisis$plmnr_cronc)
 table(ENS_analisis$plmnr_cronc)
 class(ENS_analisis$plmnr_cronc)
@@ -107,6 +108,7 @@ EPC <- ENS_analisis %>%
 #Asma (Nominal)
 
 #¿Alguna vez un doctor o médico le ha dicho que tiene o que padece de Asma? -8888 NO SABE /  1 SÍ  / 2 NO
+#recodificar en 1.Sí 0.No 
 summary(ENS_analisis$asma)
 table(ENS_analisis$asma)
 class(ENS_analisis$asma)
@@ -125,7 +127,7 @@ dim(ASMA)
 
 #Hipertensión Arterial (nominal)
 #ENS: "¿Alguna vez un profesional de la salud le ha diagnosticado presión alta?": 1 SÍ, UNA SOLA VEZ 2 SÍ, MÁS DE UNA VEZ  3 NO, NUNCA ME LO HAN DICHO 4 NO RECUERDO, NO ESTOY SEGURO(A)
-#Recordificar 1 y 2 a Sí, 3 y 4 a No.
+#Recordificar en números asociados a subgrupos de respuesta 1:2 en 1, 3:4 en 0.
 summary(ENS_analisis$hta)
 table(ENS_analisis$hta)
 class(ENS_analisis$hta)
@@ -185,36 +187,45 @@ freq(ASMA$comuna, report.nas = FALSE,
 freq(HTA$comuna, report.nas = FALSE,  
      order = "freq", rows = 1:10, weights = HTA$factor1)
 
-#Resultado 3 Tablas de doble entrada con "summarytools", ponderada
+#Resultado 3 Tablas de doble entrada con "summarytools", ponderados
+
+#Para los casos de tablas cruzadas de Enfermedad Pulmonar Crónica y Asma 
+#es necesario comparar datos de F1 y F2. 
+
+#Población mayor a 65 años según comuna, perfil fila
+ctable(ENS_analisis$comuna, ENS_analisis$edad_rec65factor, 
+       prop = "r",weights = ENS_analisis$factor1)
 
 #Prevalencia de Enfermedad Pulmonar Crónica según sexo, perfil columna
 ctable(ENS_analisis$sexo_factor, ENS_analisis$plmnr_cronc_factor, 
-       prop = "c", order = "freq", rows = 1:10, 
-       weights = ENS_analisis$factor1x2)
+       prop = "c", weights = ENS_analisis$factor1x2)
 
 #Prevalencia de Enfermedad Pulmonar Crónica según comuna, perfil fila
 ctable(ENS_analisis$comuna, ENS_analisis$plmnr_cronc_factor, 
-       prop = "r", order = "freq", rows = 1:10, 
-       weights = ENS_analisis$factor1x2)
+       prop = "r", order = "freq", weights = ENS_analisis$factor1x2)
 
 #Prevalencia de asma según sexo, perfil columna
 ctable(ENS_analisis$sexo_factor, ENS_analisis$asma_factor, 
-       prop = "c", order = "freq", rows = 1:10, 
-       weights = ENS_analisis$factor1x2)
+       prop = "c", weights = ENS_analisis$factor1x2)
 
 #Prevalencia de asma según comuna, perfil fila
 ctable(ENS_analisis$comuna, ENS_analisis$asma_factor, 
-       prop = "r", order = "freq", rows = 1:10, 
-       weights = ENS_analisis$factor1x2)
+       prop = "r", weights = ENS_analisis$factor1x2)
 
 #Prevalencia de hipertención arterial según sexo, perfil columna
 ctable(ENS_analisis$sexo_factor, ENS_analisis$hta_factor, 
-       prop = "c", order = "freq", rows = 1:10, 
-       weights = ENS_analisis$factor1)
+       prop = "c", weights = ENS_analisis$factor1)
 
 #Prevalencia de hipertención arterial según comuna, perfil fila
 ctable(ENS_analisis$comuna, ENS_analisis$hta_factor, 
-       prop = "r", order = "freq", rows = 1:10, 
-       weights = ENS_analisis$factor1)
+       prop = "r", weights = ENS_analisis$factor1)
+
+# Bases de datos ponderadas para uso posterior
+
 library(survey)
-ENS_ponderada <- svydesign(data = ENS_analisis, id=~1, weights = ~factor1x2)
+
+ENS_ponderadaF1 <- svydesign(data = ENS_analisis, id=~1, weights = ~factor1)
+
+ENS_paraF1X2 <- subset( ENS_analisis , !is.na( factor1x2 ) )
+
+ENS_ponderadaF1X2 <- svydesign(data = ENS_paraF1X2, id=~1, weights = ~factor1x2)
