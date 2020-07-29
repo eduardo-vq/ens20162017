@@ -1,5 +1,5 @@
 ---
-title: "Determinantes Sociales de la salud y Factores de Riesgo para enfermedad grave por COVID-19 en Chile"
+title: "Determinantes Sociales de la Salud y Factores de Riesgo para enfermedad grave por COVID-19 en Chile"
 author: "Eduardo Peña"
 date: "29-07-2020"
 bibliography: bibliografía.bib
@@ -20,62 +20,85 @@ resultados <- readRDS("Datos/Datos de Análisis/resultados-reporte.rds")
 
 # Introducción
 
-##Objetivo
-Describir la cantidad de factores de riesgo de enfermerdad grave por COVID-19 según sexo, nivel educacional, pertenencia a pueblos indígenas y 
+### Objetivo
+Observar la distribución porcentual de la cantidad de factores de riesgo de enfermedad grave por COVID-19, según sexo, nivel educacional, pertenencia a pueblos indígenas y nivel de ingreso per cápita en personas de 15 años y más que residen en Chile.
 
-## Factores de Riesgo
+### Factores de Riesgo
 
-Se utilizaron las principales comorbilidades descritas en pacientes que desarrollan cuadros graves por COVID-19 (@rod_briefreviw_2020; @espinosa_prevalence_2020):
+Se utilizaron las principales comorbilidades descritas en pacientes que desarrollan cuadros graves por COVID-19 [@rod_briefreview_2020; @espinosa_prevalence_2020]:
 
 * Hipertensión Arterial
 * Enfermedad Cardiovascular
-* Diabetes Mellitus 2
+* Diabetes 
 * Enfemedad Pulmonar
 
-## Determinantes sociales
-Los indicadores utilizados como determinantes sociales fueron extraídos del marco conceptual elaborado por Solar e Irwin -@solar_conceptual_2007. 
+### Determinantes sociales
+Los indicadores utilizados como determinantes sociales fueron extraídos del marco conceptual elaborado por Solar e Irwin -@solar_conceptual_2007 utilizado por la Organización Mundial de la Salud [-@organizacionmundialdelasalud_subsanar_2009].
 
-* Nivel de Ingresos
+* Sexo
 * Nivel Educacional
 * Pertenencia a pueblos Indígenas
 * Ingreso per cápita
 
-#Metodología
+# Metodología
 
 Se utilizó la Encuesta Nacional de Salud (ENS) 2016-2017 del Departamento de Salud Pública, y Centro de Encuestas y Estudios Longitudinales (CEEL) y Pontificia Universidad Católica de Chile (PUC). EstEN esta encuesta se utilizó una selección aleatoria y compleja (estratificada y multietápica por conglomerados), y es representativa de personas de 15 años y más, chilenas o extranjeras que residen en Chile.
 
 Tanto los factores de riesgo, como los determinantes sociales fueron construidos a partir del autoreporte de enfermedades y datos socioeconómicos de la ENS 2017. 
 
-# Gráficos
+\newpage
 
-###Gráfico 1
+#### Variables utilizadas
 
-Cantidad de grupos de riesgo por COVID-19
+|            Descripción de la variable       	| Nombre en base original 	|   Nuevo nombre  	|                                    Valores y recodificación                                   	| Nivel de Medición 	|
+|:-------------------------------------------:	|:-----------------------:	|:---------------:	|:---------------------------------------------------------------------------------------------:	|:-----------------:	|
+|       Factor de Expansión Formulario 1      	|      Fexp_F1p_Corr      	|     factor1     	|                                Números simples para ponderación                               	|     No Aplica     	|
+|       Factor de Expansión Formulario 2      	|      Fexp_F2p_Corr      	|     factor2     	|                                Números simples para ponderación                               	|     No Aplica     	|
+| Factor de Expansión Cruces Formulario 1 y 2 	|     Fexp_F1F2p_Corr     	|    factor1x2    	|                                Números simples para ponderación                               	|     No Aplica     	|
+|             Nivel   Educacional             	|           as7           	|       educ      	| Se recodifica en: "Ed   Básica o sin estudios", "Ed Media", "Ed Técnica" y   "Ed Profesional" 	|      Ordinal      	|
+|                     Sexo                    	|           Sexo          	|       sexo      	|                                      1= hombre, 2= mujer                                      	|      Nominal      	|
+|            Ingreso   total hogar            	|           as27          	|     ingresos    	|                         Recodificada a tramos   de ingreso per cápita                         	|      Ordinal      	|
+|        Número   de personas por hogar       	|          n_per          	| npersonas_hogar 	|                                                                                               	|                   	|
+|      Pertenencia   a pueblos indígenas      	|            c6           	|    pueblosind   	|                                          1.Sí   0.No                                          	|      Nominal      	|
+|  Enfermedad Pulmonar Crónica Autoreportada  	|          m9p17A         	|   plmnr_cronc   	|                      Se construye nueva variable: Enfemedad Respiratoria                      	|      Nominal      	|
+|              Asma Autoreportada             	|          m9p18A         	|       asma      	|                     Se construye nueva variable:   Enfemedad Respiratoria                     	|      Nominal      	|
+|      Hipertensión Arterial Autorportada     	|            h2           	|       hta       	|                                           1.Sí 0.No                                           	|     Nominal       	|
+|           Diabetes  Autoreportada           	|           di3           	|        dm       	|                                           1.Sí 0.No                                           	|      Nominal      	|
+|            Infarto   al Miocardio           	|            d1           	|       iam       	|                     Se construye nueva variable: Enfemedad Cardiovascular                     	|      Nominal      	|
+|         Accidente   Cerebro Vascular        	|            d4           	|       acv       	|                     Se construye nueva variable: Enfemedad Cardiovascular                     	|      Nominal      	|
+|       Enfermedad   Vascular Periférica      	|            d7           	|       evp       	|                     Se construye nueva variable: Enfemedad Cardiovascular                     	|      Nominal      	|
+\newpage
+
+# Gráficos 
+
+### Gráfico 1
+
+#### Gráfico de barras apilada al 100%, subdividido por cantidad de factores de riesgo según sexo.
 
 ![](Salida/Figura1.png)
 
+### Gráfico 2
+
+#### Gráfico de barras apilada al 100%, subdividido por cantidad de factores de riesgo según nivel educacional.
+
 ![](Salida/Figura2.png)
 
+\newpage
+
+### Gráfico 3
+
+#### Gráfico de barra apilada al 100%, subdividido por cantidad de factores de riesgo según pertenencia a pueblos indígenas.
 ![](Salida/Figura3.png)
 
+### Gráfico 4
+
+#### Gráfico de barra apilada al 100%, subdividido por cantidad de factores de riesgo según tramo de ingreso per cápita.
 ![](Salida/Figura4.png)
 
 \newpage
 
-# Tablas de resultados
+# Anexos
 
-Con la función `knitr::kable(objeto_a_imprimir)`, podemos imprimir una tabla en formato *R Markdown*.
-
-Para ello hay que tener clara la posición de los resultados en el archivo tipo "lista" que se creó en el tercer código (*3-construccion-resultados.R*).
-
-```{r tabla9}
-
-  
-```
-
-\newpage
-
-#Anexos
 
 ```{r tabla1}
 knitr::kable(resultados[[5]], digit=2, caption = "Tabla Cruzada: Número de Factotes de Riesgo para enfermedad grave COVID-19 según sexo")
@@ -84,6 +107,8 @@ knitr::kable(resultados[[5]], digit=2, caption = "Tabla Cruzada: Número de Fact
 ```{r tabla2}
 knitr::kable(resultados[[6]], digit=2, caption = "Tabla Cruzada: Número de Factotes de Riesgo para enfermedad grave COVID-19 según Nivel Educacional")
 ```
+
+\newpage
 
 ```{r tabla3}
 knitr::kable(resultados[[7]], digit=2, caption = "Tabla Cruzada: Número de Factotes de Riesgo para enfermedad grave COVID-19 según pertenencia a pueblo indígena")

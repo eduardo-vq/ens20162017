@@ -27,7 +27,7 @@ source("Código/Análisis/3-construcción-resultados.R")
 
 # Ejecuta código 4: construcción de reporte reproducible
 # En base a lista de resultados, crea archivo de reporte en PDF
-rmarkdown::render('reporte_reproducible.Rmd')
+rmarkdown::render('Reporte Reproducible.Rmd')
 
 # Limpiar entorno de trabajo
 rm(list=ls())
