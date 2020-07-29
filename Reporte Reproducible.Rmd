@@ -2,7 +2,7 @@
 title: "Determinantes Sociales de la salud y Factores de Riesgo para enfermedad grave por COVID-19 en Chile"
 author: "Eduardo Peña"
 date: "29-07-2020"
-bibliography: bibliografia.bib
+bibliography: bibliografía.bib
 csl: apa.csl
 output: pdf_document
 ---
@@ -20,23 +20,37 @@ resultados <- readRDS("Datos/Datos de Análisis/resultados-reporte.rds")
 
 # Introducción
 
-##F
+##Objetivo
+Describir la cantidad de factores de riesgo de enfermerdad grave por COVID-19 según sexo, nivel educacional, pertenencia a pueblos indígenas y 
+
+## Factores de Riesgo
+
+Se utilizaron las principales comorbilidades descritas en pacientes que desarrollan cuadros graves por COVID-19 (@rod_briefreviw_2020; @espinosa_prevalence_2020):
+
+* Hipertensión Arterial
+* Enfermedad Cardiovascular
+* Diabetes Mellitus 2
+* Enfemedad Pulmonar
+
 ## Determinantes sociales
-Los indicadores utilizados como determinantes sociales corresponden a:
-- Nivel de Ingresos
-- Nivel Educacional
-- Pertenencia a pueblos Indígenas
-- Ingreso per cápita
+Los indicadores utilizados como determinantes sociales fueron extraídos del marco conceptual elaborado por Solar e Irwin -@solar_conceptual_2007. 
 
+* Nivel de Ingresos
+* Nivel Educacional
+* Pertenencia a pueblos Indígenas
+* Ingreso per cápita
 
+#Metodología
 
-En este ejemplo se muestra como introducir referencias bibliográficas [@dancona_alisis_2002], así com o la inclusión de resultados tipo tablas y gráficos [@hair_alisis_1999; @vivanco_analisis_1996].
+Se utilizó la Encuesta Nacional de Salud (ENS) 2016-2017 del Departamento de Salud Pública, y Centro de Encuestas y Estudios Longitudinales (CEEL) y Pontificia Universidad Católica de Chile (PUC). EstEN esta encuesta se utilizó una selección aleatoria y compleja (estratificada y multietápica por conglomerados), y es representativa de personas de 15 años y más, chilenas o extranjeras que residen en Chile.
+
+Tanto los factores de riesgo, como los determinantes sociales fueron construidos a partir del autoreporte de enfermedades y datos socioeconómicos de la ENS 2017. 
 
 # Gráficos
 
-La lógica para incorporar los gráficos es la misma.
+###Gráfico 1
 
-También podemos agregar el mismo gráfico, pero directamente desde el archivo de imagen desde el directorio `Output`
+Cantidad de grupos de riesgo por COVID-19
 
 ![](Salida/Figura1.png)
 
@@ -56,15 +70,6 @@ Para ello hay que tener clara la posición de los resultados en el archivo tipo 
 
 ```{r tabla9}
 
-ENS_analisis<-readRDS("Datos/Datos de Análisis/ENS2017_analisis.RDS")
-
-library(kableExtra)
-library(magrittr)
-knitr::kable (tb(with(ENS_analisis, stby(data = Risk, INDICES = sexo_factor, 
-                                  FUN = descr,transpose = TRUE, stats = c("mean", "med", "sd", "cv"),
-                                  weights = ENS_analisis$factor1x2, style = 'rmarkdown')), order = 2))
-
-knitr::kable (table1, digit=2)
   
 ```
 
