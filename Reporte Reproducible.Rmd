@@ -33,7 +33,7 @@ Se utilizaron las principales comorbilidades descritas en pacientes que desarrol
 * Enfemedad Pulmonar
 
 ### Determinantes sociales
-Los indicadores utilizados como determinantes sociales fueron extraídos del marco conceptual elaborado por Solar e Irwin -@solar_conceptual_2007 utilizado por la Organización Mundial de la Salud [-@organizacionmundialdelasalud_subsanar_2009].
+Los indicadores utilizados como determinantes sociales fueron extraídos del marco conceptual elaborado por Solar e Irwin -@solar_conceptual_2007 para la Organización Mundial de la Salud [-@organizacionmundialdelasalud_subsanar_2009].
 
 * Sexo
 * Nivel Educacional
@@ -42,13 +42,13 @@ Los indicadores utilizados como determinantes sociales fueron extraídos del mar
 
 # Metodología
 
-Se utilizó la Encuesta Nacional de Salud (ENS) 2016-2017 del Departamento de Salud Pública, y Centro de Encuestas y Estudios Longitudinales (CEEL) y Pontificia Universidad Católica de Chile (PUC). EstEN esta encuesta se utilizó una selección aleatoria y compleja (estratificada y multietápica por conglomerados), y es representativa de personas de 15 años y más, chilenas o extranjeras que residen en Chile.
+Se utilizó la Encuesta Nacional de Salud (ENS) 2016-2017 del Departamento de Salud Pública, y Centro de Encuestas y Estudios Longitudinales (CEEL) y Pontificia Universidad Católica de Chile (PUC). En esta encuesta se realizó una selección aleatoria y compleja (estratificada y multietápica por conglomerados), y su muestra es representativa de personas de 15 años y más, chilenas o extranjeras que residen en Chile.
 
 Tanto los factores de riesgo, como los determinantes sociales fueron construidos a partir del autoreporte de enfermedades y datos socioeconómicos de la ENS 2017. 
 
 \newpage
 
-#### Variables utilizadas
+### Variables utilizadas
 
 |            Descripción de la variable       	| Nombre en base original 	|   Nuevo nombre  	|                                    Valores y recodificación                                   	| Nivel de Medición 	|
 |:-------------------------------------------:	|:-----------------------:	|:---------------:	|:---------------------------------------------------------------------------------------------:	|:-----------------:	|
@@ -73,13 +73,14 @@ Tanto los factores de riesgo, como los determinantes sociales fueron construidos
 
 ### Gráfico 1
 
-#### Gráfico de barras apilada al 100%, subdividido por cantidad de factores de riesgo según sexo.
+Gráfico de barras apiladas al 100%, subdividido por cantidad de factores de riesgo según sexo.
 
 ![](Salida/Figura1.png)
 
 ### Gráfico 2
 
-#### Gráfico de barras apilada al 100%, subdividido por cantidad de factores de riesgo según nivel educacional.
+Gráfico de barras apiladas al 100%, subdividido por cantidad de factores de riesgo según nivel educacional.
+
 
 ![](Salida/Figura2.png)
 
@@ -87,35 +88,38 @@ Tanto los factores de riesgo, como los determinantes sociales fueron construidos
 
 ### Gráfico 3
 
-#### Gráfico de barra apilada al 100%, subdividido por cantidad de factores de riesgo según pertenencia a pueblos indígenas.
+Gráfico de barra apiladas al 100%, subdividido por cantidad de factores de riesgo según pertenencia a pueblos indígenas.
+
+
 ![](Salida/Figura3.png)
 
 ### Gráfico 4
 
-#### Gráfico de barra apilada al 100%, subdividido por cantidad de factores de riesgo según tramo de ingreso per cápita.
+Gráfico de barra apiladas al 100%, subdividido por cantidad de factores de riesgo según tramo de ingreso per cápita.
+
+
 ![](Salida/Figura4.png)
 
 \newpage
 
 # Anexos
 
-
 ```{r tabla1}
-knitr::kable(resultados[[5]], digit=2, caption = "Tabla Cruzada: Número de Factotes de Riesgo para enfermedad grave COVID-19 según sexo")
+knitr::kable(resultados[[5]], digit=2, caption = "Anexo 1: Tabla Cruzada: Número de Factotes de Riesgo para enfermedad grave COVID-19 según sexo")
 ```
 
 ```{r tabla2}
-knitr::kable(resultados[[6]], digit=2, caption = "Tabla Cruzada: Número de Factotes de Riesgo para enfermedad grave COVID-19 según Nivel Educacional")
+knitr::kable(resultados[[6]], digit=2, caption = "Anexo 2: Tabla Cruzada: Número de Factotes de Riesgo para enfermedad grave COVID-19 según Nivel Educacional")
 ```
 
-\newpage
+
 
 ```{r tabla3}
-knitr::kable(resultados[[7]], digit=2, caption = "Tabla Cruzada: Número de Factotes de Riesgo para enfermedad grave COVID-19 según pertenencia a pueblo indígena")
+knitr::kable(resultados[[7]], digit=2, caption = "Anexo:3 Tabla Cruzada: Número de Factotes de Riesgo para enfermedad grave COVID-19 según pertenencia a pueblo indígena")
 ```
 
 ```{r tabla4}
-knitr::kable(resultados[[8]], digit=2, caption = "Tabla Cruzada: Número de Factotes de Riesgo para enfermedad grave COVID-19 según Tramos de Ingresos per cápita")
+knitr::kable(resultados[[8]], digit=2, caption = "Anexo 4: Tabla Cruzada: Número de Factotes de Riesgo para enfermedad grave COVID-19 según Tramos de Ingresos per cápita")
 ```
 
 \newpage

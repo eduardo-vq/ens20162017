@@ -59,7 +59,7 @@ grafico2 <- grafico2 + labs(fill = "Cantidad de
 Factores de Riesgo") 
 
 ggsave(grafico2, filename = "Salida/Figura2.png",
-       dpi = 350, width = 5, height = 4)
+       dpi = 350, width = 8, height = 3)
 
 grafico3 <- ENS_analisis %>% 
   filter(!is.na(pind_dic)) %>% 
@@ -74,7 +74,7 @@ grafico3 <- grafico3 + labs(fill = "Cantidad de
 Factores de Riesgo") 
 
 ggsave(grafico3, filename = "Salida/Figura3.png",
-       dpi = 350, width = 6, height = 4)
+       dpi = 350, width = 6, height = 3)
 
 grafico4 <- ENS_analisis %>% 
   filter(!is.na(tramos_ingpc)) %>% 
@@ -89,7 +89,7 @@ grafico4 <- grafico4 + labs(fill = "Cantidad de
 Factores de Riesgo") 
 
 ggsave(grafico4, filename = "Salida/Figura4.png",
-       dpi = 350, width = 8, height = 4)
+       dpi = 350, width = 8, height = 3)
 
 
 #Tablas Anexos
